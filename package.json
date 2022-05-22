@@ -1,11 +1,29 @@
 {
   "name": "shared-data",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lib for shared buffer in thread",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\""
   },
-  "author": "",
-  "license": "ISC"
+  "author": "LimitR",
+  "license": "ISC",
+  "directories": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LimitR/SharedData.git"
+  },
+  "keywords": [
+    "naive",
+    "bayes",
+    "categorize",
+    "classify",
+    "classifier",
+    "classification",
+    "machine learning"
+  ],
+  "bugs": {
+    "url": "https://github.com/LimitR/SharedData/issues"
+  },
+  "homepage": "https://github.com/LimitR/SharedData#readme"
 }
