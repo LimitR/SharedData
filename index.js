@@ -20,9 +20,7 @@ module.exports = class SharedData {
      */
     constructor(length = 1024, type){
         this.#type = type || "int32";
-        this.#data = this.#typeConfigurator[type] === undefined ?
-        this.#typeConfigurator["int32"](new SharedArrayBuffer(length)) :
-        this.#typeConfigurator[type](new SharedArrayBuffer(length));
+        this.#data = this.#typeConfigurator[type || "int32"](new SharedArrayBuffer(length));
     }
     /**
      * @param {workerData} data
@@ -35,8 +33,9 @@ module.exports = class SharedData {
     }
     /**
      * @param {Object|Array|string|number|boolean} data
+     * @returns {Promise}
      */
-    add(data){
+    async add(data){
         v8.serialize(data).map((element, index) => {
             Atomics.add(this.#data, index, element);
         });
@@ -60,9 +59,9 @@ module.exports = class SharedData {
     /**
      * @param {number} from from index
      * @param {number} to to index
-     * @returns {number[]} Array bytes
+     * @returns {Promise} number[] - Array bytes
      */
-    get(from, to){
+    async get(from, to){
         const result = [];
         while(from < to){
             result.push(Atomics.load(this.#data, from))
@@ -74,8 +73,9 @@ module.exports = class SharedData {
      * @param {SharedArrayBuffer|null} data
      * @description Method return data from class SharedData, or serialized data from argument
      * @returns {*}
+     * @returns {Promise} Any data from argument or a class context
      */
-    serialize(data){
+    async serialize(data){
         return v8.deserialize(new Buffer.from(this.#typeConfigurator[this.#type](data || this.#data)));
     }
 }

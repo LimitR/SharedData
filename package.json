@@ -1,7 +1,7 @@
 {
   "name": "shared-data",
-  "version": "1.0.0",
-  "description": "Lib for shared buffer in thread",
+  "version": "1.0.2",
+  "description": "Lib for shared data transfer between streams",
   "main": "index.js",
   "scripts": {
     "test": "echo \"No test specified\""
@@ -14,13 +14,9 @@
     "url": "git+https://github.com/LimitR/SharedData.git"
   },
   "keywords": [
-    "naive",
-    "bayes",
-    "categorize",
-    "classify",
-    "classifier",
-    "classification",
-    "machine learning"
+    "worker_threads",
+    "shared data",
+    "shared memory"
   ],
   "bugs": {
     "url": "https://github.com/LimitR/SharedData/issues"
