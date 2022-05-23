@@ -1,6 +1,6 @@
 {
   "name": "shared-data",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Lib for shared data transfer between streams",
   "main": "index.js",
   "scripts": {
